@@ -13,7 +13,7 @@ app.use(express.json());
 //rute
 
 //start server
-const port = process.env.PORT | 3600;
+const port : number = Number(process.env.PORT) || 3000;
 app.listen(port, ()=>{
     console.log(`server running on port :${port}`);
 });
