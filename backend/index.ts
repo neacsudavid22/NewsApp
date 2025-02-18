@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import connectDB from './config/db.js'; 
+import connectDB from './config/db'; 
 
 const app = express();
 
@@ -15,5 +15,5 @@ app.use(express.json());
 //start server
 const port : number = Number(process.env.PORT) || 3000;
 app.listen(port, ()=>{
-    console.log(`server running on port :${port}`);
+    console.log(`server running on port: ${port}`);
 });

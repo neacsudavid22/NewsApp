@@ -1,27 +1,34 @@
 //Creating a schema and model
 import mongoose from 'mongoose';
-const { Schema, model } = mongoose;
+const { Schema, SchemaTypes, model } = mongoose;
 
 const Article = model('Article', new Schema({
   title:  {
     type: String,
-    required: true,
+    required: [true, "Title is required"],
+    unique: true,
+    minLenght: [10, 'Title must be at least 10 characters long']
   },
   author: {
-    type: String,
-    required: true,
+    type: SchemaTypes.ObjectId,
+    ref: 'User',
+    required: [true, "Author is required"],
+    minLenght: 3
   },
   category: { type: String, required: true },
   tags: { type: [String], default: [] },
-  content: {
-    order: { type: [String], required: true }, // the name of the elements in order to know which one is next, they are accessed sequentially
-    paragraphs: [String],
-    headers: [String],
-    galery: [{
-      imageUrl: String,
-      title: String,
-      }],
-      // to-do: add comments
-  }
-}, { timestamps: true }));
+  content2: [{
+    content: String,
+    contentType: {
+      type: String,
+      enum: ['p', 'h2', 'imgUrl'], // others to come
+      default: 'p'
+    },
+    gallery: { 
+      isGallery: { type: Boolean, default: false },
+      size: { type: Number, min: [2, "A gallery must have at least 2 items"] }
+    }
+  }]
+}));
+
 export default Article;
