@@ -7,13 +7,13 @@ const Article = model('Article', new Schema({
     type: String,
     required: [true, "Title is required"],
     unique: true,
-    minLenght: [10, 'Title must be at least 10 characters long']
+    minlength: [10, 'Title must be at least 10 characters long']
   },
   author: {
     type: SchemaTypes.ObjectId,
     ref: 'User',
     required: [true, "Author is required"],
-    minLenght: 3
+    minlength: 3
   },
   category: { type: String, required: true },
   tags: { type: [String], default: [] },

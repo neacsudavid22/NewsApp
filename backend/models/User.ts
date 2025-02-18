@@ -5,13 +5,17 @@ const User = model("User", new Schema({
     email: { 
         type: String, 
         unique: true,
-        minLenght: [10, "The email must have at least 10 characters"]
+        minlength: [10, "The email must have at least 10 characters"]
     },
-    password: String,
+    password: { 
+        type: String, 
+        required: true,
+        minlength: [8, "The password must be at least 8 characters long"],
+    },
     username: { 
         type: String, 
         unique: true,
-        minLenght: [5, "The username must have at least 10 characters"]
+        minlength: [5, "The username must have at least 10 characters"]
      },
     name: String,
     account:{
