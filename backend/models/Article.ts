@@ -17,16 +17,12 @@ const Article = model('Article', new Schema({
   },
   category: { type: String, required: true },
   tags: { type: [String], default: [] },
-  content2: [{
+  articleContent: [{
     content: String,
     contentType: {
       type: String,
-      enum: ['p', 'h2', 'imgUrl'], // others to come
+      enum: ['p', 'h2', 'imgUrl', 'galleryUrl'], // others to come
       default: 'p'
-    },
-    gallery: { 
-      isGallery: { type: Boolean, default: false },
-      size: { type: Number, min: [2, "A gallery must have at least 2 items"] }
     }
   }]
 }));

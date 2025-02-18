@@ -21,7 +21,8 @@ const User = model("User", new Schema({
     account:{
         type: String,
         enum: ['standard','premium','author','admin'],
-        default: 'standard'
+        default: 'standard',
+        required: true
     },
     friendList: {
         type: [SchemaTypes.ObjectId],   
@@ -31,6 +32,11 @@ const User = model("User", new Schema({
     friendRequests: {
         type: [SchemaTypes.ObjectId],   
         ref: 'User',
+        default: []
+    },
+    savedPosts: {
+        type: [SchemaTypes.ObjectId],
+        ref: 'Post',
         default: []
     }
 }, { timestamps: true }));
