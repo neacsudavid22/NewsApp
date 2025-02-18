@@ -29,6 +29,17 @@ const User = model("User", new Schema({
         ref: 'User',
         default: []
     },
+    shareList: {
+        type: [{
+            userFrom: {
+            type: SchemaTypes.ObjectId,   
+            ref: 'User'},
+            articleShared: {
+                type: SchemaTypes.ObjectId,   
+                ref: 'Article'},
+        }],
+        default: [{}]
+    },
     friendRequests: {
         type: [SchemaTypes.ObjectId],   
         ref: 'User',

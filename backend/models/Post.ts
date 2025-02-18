@@ -12,6 +12,11 @@ const Post = model('Post', new Schema({
         ref: 'User', 
         default: []
     },
+    shares: {
+        type: [SchemaTypes.ObjectId],
+        ref: 'User', 
+        default: []
+    },
     comments: [{
         content: String,
         user: {
