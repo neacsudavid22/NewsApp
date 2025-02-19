@@ -17,15 +17,18 @@ const Post = model('Post', new Schema({
         ref: 'User', 
         default: []
     },
-    comments: [{
-        content: String,
-        user: {
-            type: SchemaTypes.ObjectId,
-            ref: 'User', 
-        },
-        response: { type: Number, default: null }   
-        // I fill search in this array for the position of the comment it response to
-    }]   
+    comments: {
+        type: [{
+            _id: false,
+            content: String,
+            user: {
+                type: SchemaTypes.ObjectId,
+                ref: 'User', 
+            },
+            response: { type: Number, default: null }   
+            // I fill search in this array for the position of the comment it response to
+        }],
+        default: [] }
 }, { timestamps: true }));
 
 export default Post;

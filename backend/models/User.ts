@@ -31,6 +31,7 @@ const User = model("User", new Schema({
     },
     shareList: {
         type: [{
+            _id: false,
             userFrom: {
             type: SchemaTypes.ObjectId,   
             ref: 'User'},
@@ -38,7 +39,7 @@ const User = model("User", new Schema({
                 type: SchemaTypes.ObjectId,   
                 ref: 'Article'},
         }],
-        default: [{}]
+        default: []
     },
     friendRequests: {
         type: [SchemaTypes.ObjectId],   

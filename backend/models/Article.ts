@@ -18,6 +18,7 @@ const Article = model('Article', new Schema({
   category: { type: String, required: true },
   tags: { type: [String], default: [] },
   articleContent: [{
+    _id: false,
     content: String,
     contentType: {
       type: String,
