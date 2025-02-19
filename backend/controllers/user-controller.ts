@@ -12,6 +12,17 @@ async function getUsers(){
     }
 }
 
+async function getAuthUser(username: string, password: string){
+    try{
+        const data = await User.findOne().where({username: username, password: password})
+        return data ? data : {message: "no match for username and password"}
+    }
+    catch (err : any) {
+        console.error(`getUsers Error: ${err.message}`);
+        process.exit(1);
+    }
+}
+
 async function getUserById(id: string){
     try{
         const data = await User.findById(id)
@@ -61,5 +72,6 @@ export {
     getUserById,
     createUser,
     deleteUser,
-    updateUser
+    updateUser,
+    getAuthUser
 }
