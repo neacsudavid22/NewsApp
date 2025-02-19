@@ -26,7 +26,7 @@ const Post = model('Post', new Schema({
                 ref: 'User', 
             },
             response: { type: Number, default: null }   
-            // I fill search in this array for the position of the comment it response to
+            // I will search in this array for the position of the comment it responses to
         }],
         default: [] }
 }, { timestamps: true }));
