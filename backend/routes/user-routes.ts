@@ -7,7 +7,7 @@ usersRouter.route('/user').get(async (req, res) => {
     res.status(200).json(await getUsers())
 })
 
-usersRouter.route('/user-auth/:username/:password').get(async (req, res) => {
+usersRouter.route('/user-login/:username/:password').get(async (req, res) => {
     res.status(200).json(await getAuthUser(req.params.username, req.params.password))
 })
 
